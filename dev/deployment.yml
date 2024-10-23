@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devsecops-deployment
+  labels:
+    app: devsecops
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devsecops
+  template:
+    metadata:
+      labels:
+        app: devsecops
+    spec:
+      containers:
+      - name: devsecops
+        image: khumo/devsecops:v1.0.3
+        ports:
+        - containerPort: 80
