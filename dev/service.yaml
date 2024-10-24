@@ -3,11 +3,9 @@ kind: Service
 metadata:
   name: devsecops-service
 spec:
-  type: NodePort
   selector:
     app: devsecops
   ports:
     - protocol: TCP
       port: 8080
       targetPort: 80
-      nodePort: 30080   # Specify a port between 30000-32767
