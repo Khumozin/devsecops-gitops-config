@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: devsecops
-        image: khumo/devsecops:v
+        image: khumo/devsecops:v1.0.9
         ports:
         - containerPort: 80
