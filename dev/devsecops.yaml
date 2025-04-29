@@ -59,16 +59,4 @@ spec:
                 name: devsecops
                 port:
                   number: 80
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: devsecops-ingressroute-certificate
-  namespace: devsecops
-spec:
-  secretName: devsecops-certificate-secret
-  issuerRef:
-    name: cloudflare-clusterissuer
-    kind: ClusterIssuer
-  dnsNames:
-    - devsecops.khumo.cloud
+
