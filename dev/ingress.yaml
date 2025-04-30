@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: devsecops
+  namespace: devsecops
+  labels:
+    component: ingress
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-clusterissuer
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  tls:
+    - hosts:
+        - devsecops.khumo.cloud
+      secretName: devsecops-certificate-secret
+  rules:
+    - host: devsecops.khumo.cloud
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: devsecops
+                port:
+                  number: 80
